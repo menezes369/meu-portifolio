@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="dark">
+
+    <title>Menezes | Portfólio</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        html {
+            -webkit-text-size-adjust: 100%;
+        }
+
+        body {
+            background: black;
+            color: white;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            overflow-x: hidden;
+        }
+
+        img, video {
+            max-width: 100%;
+            height: auto;
+        }
+
+        header {
+            padding: 22px 15px;
+            text-align: center;
+            border-bottom: 1px solid #17351f;
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px 4px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: #39ff75;
+        }
+
+        .inicio {
+            text-align: center;
+            padding: 55px 15px;
+            background: radial-gradient(#12351c, black 75%);
+        }
+
+        .perfil {
+            width: clamp(120px, 40vw, 170px);
+            height: clamp(120px, 40vw, 170px);
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid #39ff75;
+            box-shadow: 0 0 25px #39ff7560;
+        }
+
+        h1 {
+            font-size: clamp(30px, 8vw, 42px);
+            margin: 15px 0;
+        }
+
+        h1 span, h2 span {
+            color: #39ff75;
+        }
+
+        .inicio p {
+            color: #aaa;
+            line-height: 1.6;
+            padding: 0 5px;
+            overflow-wrap: break-word;
+        }
+
+        .botao,
+        .botao-insta {
+            color: #000 !important;
+            text-decoration: none;
+            padding: 16px 32px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 16px;
+            letter-spacing: 0.3px;
+            text-align: center;
+            max-width: 100%;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+        }
+
+        .botao {
+            display: inline-block;
+            background: linear-gradient(135deg, #39ff75, #1fd65a);
+            box-shadow: 0 6px 20px rgba(57, 255, 117, 0.35);
+            margin-top: 20px;
+        }
+
+        .botao-insta {
+            display: block;
+            width: fit-content;
+            margin: 14px auto 0;
+            background: linear-gradient(135deg, #ff4fa3, #ff7ac0);
+            box-shadow: 0 6px 20px rgba(255, 79, 163, 0.35);
+        }
+
+        .botao:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 28px rgba(57, 255, 117, 0.55);
+            filter: brightness(1.08);
+        }
+
+        .botao-insta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 28px rgba(255, 79, 163, 0.55);
+            filter: brightness(1.08);
+        }
+
+        .botao:active,
+        .botao-insta:active {
+            transform: translateY(0) scale(0.98);
+        }
+
+        section {
+            padding: 55px 15px;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: clamp(22px, 6vw, 30px);
+            margin-bottom: 15px;
+        }
+
+        .descricao {
+            color: #aaa;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto 30px;
+            padding: 0 5px;
+            overflow-wrap: break-word;
+        }
+
+        .videos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        .video-card {
+            width: 100%;
+            max-width: 320px;
+            background: #111;
+            border: 1px solid #24532e;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        video {
+            width: 100%;
+            max-width: 500px;
+            display: block;
+            background: black;
+        }
+
+        .video-card p {
+            padding: 12px;
+            margin: 0;
+            color: #39ff75;
+            font-weight: bold;
+        }
+
+        /* THUMBNAILS */
+
+        .thumbnails {
+            background: #0b110c;
+        }
+
+        .thumbs {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        .thumb-card {
+            width: 100%;
+            max-width: 480px;
+            background: #111;
+            border: 1px solid #24532e;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .thumb-card img {
+            width: 100%;
+            display: block;
+        }
+
+        .thumb-card p {
+            color: #39ff75;
+            padding: 12px;
+            margin: 0;
+            font-weight: bold;
+        }
+
+        /* SERVIÇOS */
+
+        .servicos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .servico {
+            background: #111;
+            border: 1px solid #24532e;
+            border-radius: 12px;
+            padding: 25px;
+            width: 100%;
+            max-width: 240px;
+        }
+
+        .servico h3 {
+            color: #39ff75;
+        }
+
+        .servico p {
+            color: #aaa;
+            line-height: 1.5;
+            font-size: 14px;
+        }
+
+        /* CONTATO */
+
+        .contato {
+            background: #0b110c;
+            padding: 65px 15px;
+        }
+
+        footer {
+            padding: 22px;
+            text-align: center;
+            color: #777;
+            border-top: 1px solid #17351f;
+            font-size: 13px;
+        }
+
+        footer span {
+            color: #39ff75;
+        }
+
+        /* AJUSTE PARA TELAS PEQUENAS */
+
+        @media (max-width: 600px) {
+            .inicio p br {
+                display: none;
+            }
+
+            section {
+                padding: 40px 15px;
+            }
+
+            .botao,
+            .botao-insta {
+                padding: 15px 22px;
+                font-size: 15px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- MENU -->
+
+    <header>
+        <nav>
+            <a href="#inicio">Início</a>
+            <a href="#videos">Vídeos</a>
+            <a href="#thumbs">Thumbnails</a>
+            <a href="#servicos">Serviços</a>
+            <a href="#contato">Contato</a>
+        </nav>
+    </header>
+
+    <!-- APRESENTAÇÃO -->
+
+    <div class="inicio" id="inicio">
+
+        <img src="perfil.jpg" class="perfil" alt="Menezes">
+
+        <h1><span>Menezes</span></h1>
+
+        <p>
+            não perca horas editando seus videos,
+            <br>
+            enquanto isso você tem a oportunidade de postar <span style="color: #39ff75;">vários vídeos na semana.</span>
+        </p>
+
+        <a class="botao"
+           href="https://wa.me/5518996241216"
+           target="_blank">
+            Falar comigo pelo WhatsApp
+        </a>
+
+        <a class="botao-insta"
+           href="https://instagram.com/menezssz_"
+           target="_blank">
+            Falar comigo pelo Instagram
+        </a>
+
+    </div>
+
+    <!-- VÍDEOS -->
+
+    <section id="videos">
+
+        <h2>Meus <span>Vídeos</span></h2>
+
+        <p class="descricao">
+            Os vídeos abaixo são exemplos de edição minha,
+            mas não trabalhei para nenhum dos youtubers abaixo.
+        </p>
+
+        <div class="videos">
+
+            <div class="video-card">
+                <video controls playsinline>
+                    <source src="video1.mp4" type="video/mp4">
+                </video>
+                <p>Projeto 01</p>
+            </div>
+
+            <div class="video-card">
+                <video controls playsinline>
+                    <source src="video2.mp4" type="video/mp4">
+                </video>
+                <p>Projeto 02</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- THUMBNAILS -->
+
+    <section class="thumbnails" id="thumbs">
+
+        <h2>Minhas <span>Thumbnails</span></h2>
+
+        <p class="descricao">
+            não são videos já postados no youtube, e sim criações para o portifólio.
+        </p>
+
+        <div class="thumbs">
+
+            <div class="thumb-card">
+                <img src="thumb1.png" alt="Thumbnail Como Estudar">
+                <p>Thumbnail 01</p>
+            </div>
+
+            <div class="thumb-card">
+                <img src="thumb2.png" alt="Thumbnail Ganhe do Jeito Certo">
+                <p>Thumbnail 02</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- SERVIÇOS -->
+
+    <section id="servicos">
+
+        <h2>alguns outros <span>Serviços</span> que sei fazer</h2>
+
+        <div class="servicos">
+
+            <div class="servico">
+                <h3>Vídeos curtos</h3>
+                <p>
+                    Edição para TikTok,
+                    Reels e YouTube Shorts.
+                </p>
+            </div>
+
+            <div class="servico">
+                <h3>storytelling</h3>
+                <p>
+                    construir uma historia que prenda o espectador
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- CONTATO -->
+
+    <section class="contato" id="contato">
+
+        <h2>Vamos <span>conversar?</span></h2>
+
+        <p class="descricao">
+            Gostou do meu trabalho?
+            Entre em contato para discutir os preços.
+        </p>
+
+        <a class="botao"
+           href="https://wa.me/5518996241216?text=Ol%C3%A1!%20Vi%20seu%20portf%C3%B3lio."
+           target="_blank">
+            Entrar em contato
+        </a>
+
+        <a class="botao-insta"
+           href="https://instagram.com/menezssz_"
+           target="_blank">
+            Entrar em contato pelo Instagram
+        </a>
+
+    </section>
+
+    <footer>
+        © 2026 <span>Menezes</span>
+    </footer>
+
+</body>
+</html>
