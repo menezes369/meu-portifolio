@@ -3,439 +3,118 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="color-scheme" content="dark">
-
-    <title>Menezes | Portfólio</title>
-
+    <title>Menezes - Portfólio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        * {
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
-
-        html {
-            -webkit-text-size-adjust: 100%;
-        }
-
-        body {
-            background: black;
-            color: white;
-            margin: 0;
-            font-family: Arial, sans-serif;
-            overflow-x: hidden;
-        }
-
-        img, video {
-            max-width: 100%;
-            height: auto;
-        }
-
-        header {
-            padding: 22px 15px;
-            text-align: center;
-            border-bottom: 1px solid #17351f;
-        }
-
-        nav {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 8px 4px;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 10px;
-            font-size: 14px;
-        }
-
-        nav a:hover {
-            color: #39ff75;
-        }
-
-        .inicio {
-            text-align: center;
-            padding: 55px 15px;
-            background: radial-gradient(#12351c, black 75%);
-        }
-
-        .perfil {
-            width: clamp(120px, 40vw, 170px);
-            height: clamp(120px, 40vw, 170px);
-            object-fit: cover;
-            border-radius: 50%;
-            border: 3px solid #39ff75;
-            box-shadow: 0 0 25px #39ff7560;
-        }
-
-        h1 {
-            font-size: clamp(30px, 8vw, 42px);
-            margin: 15px 0;
-        }
-
-        h1 span, h2 span {
-            color: #39ff75;
-        }
-
-        .inicio p {
-            color: #aaa;
-            line-height: 1.6;
-            padding: 0 5px;
-            overflow-wrap: break-word;
-        }
-
-        .botao,
-        .botao-insta {
-            color: #000 !important;
-            text-decoration: none;
-            padding: 16px 32px;
-            border-radius: 50px;
-            font-weight: bold;
-            font-size: 16px;
-            letter-spacing: 0.3px;
-            text-align: center;
-            max-width: 100%;
-            transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
-        }
-
-        .botao {
-            display: inline-block;
-            background: linear-gradient(135deg, #39ff75, #1fd65a);
-            box-shadow: 0 6px 20px rgba(57, 255, 117, 0.35);
-            margin-top: 20px;
-        }
-
-        .botao-insta {
-            display: block;
-            width: fit-content;
-            margin: 14px auto 0;
-            background: linear-gradient(135deg, #ff4fa3, #ff7ac0);
-            box-shadow: 0 6px 20px rgba(255, 79, 163, 0.35);
-        }
-
-        .botao:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 28px rgba(57, 255, 117, 0.55);
-            filter: brightness(1.08);
-        }
-
-        .botao-insta:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 28px rgba(255, 79, 163, 0.55);
-            filter: brightness(1.08);
-        }
-
-        .botao:active,
-        .botao-insta:active {
-            transform: translateY(0) scale(0.98);
-        }
-
-        section {
-            padding: 55px 15px;
-            text-align: center;
-        }
-
-        h2 {
-            font-size: clamp(22px, 6vw, 30px);
-            margin-bottom: 15px;
-        }
-
-        .descricao {
-            color: #aaa;
-            line-height: 1.6;
-            max-width: 600px;
-            margin: 0 auto 30px;
-            padding: 0 5px;
-            overflow-wrap: break-word;
-        }
-
-        .videos {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 25px;
-        }
-
-        .video-card {
-            width: 100%;
-            max-width: 320px;
-            background: #111;
-            border: 1px solid #24532e;
-            border-radius: 12px;
-            overflow: hidden;
-        }
-
-        video {
-            width: 100%;
-            max-width: 500px;
-            display: block;
-            background: black;
-        }
-
-        .video-card p {
-            padding: 12px;
-            margin: 0;
-            color: #39ff75;
-            font-weight: bold;
-        }
-
-        /* THUMBNAILS */
-
-        .thumbnails {
-            background: #0b110c;
-        }
-
-        .thumbs {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 25px;
-        }
-
-        .thumb-card {
-            width: 100%;
-            max-width: 480px;
-            background: #111;
-            border: 1px solid #24532e;
-            border-radius: 12px;
-            overflow: hidden;
-        }
-
-        .thumb-card img {
-            width: 100%;
-            display: block;
-        }
-
-        .thumb-card p {
-            color: #39ff75;
-            padding: 12px;
-            margin: 0;
-            font-weight: bold;
-        }
-
-        /* SERVIÇOS */
-
-        .servicos {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        .servico {
-            background: #111;
-            border: 1px solid #24532e;
-            border-radius: 12px;
-            padding: 25px;
-            width: 100%;
-            max-width: 240px;
-        }
-
-        .servico h3 {
-            color: #39ff75;
-        }
-
-        .servico p {
-            color: #aaa;
-            line-height: 1.5;
-            font-size: 14px;
-        }
-
-        /* CONTATO */
-
-        .contato {
-            background: #0b110c;
-            padding: 65px 15px;
-        }
-
-        footer {
-            padding: 22px;
-            text-align: center;
-            color: #777;
-            border-top: 1px solid #17351f;
-            font-size: 13px;
-        }
-
-        footer span {
-            color: #39ff75;
-        }
-
-        /* AJUSTE PARA TELAS PEQUENAS */
-
-        @media (max-width: 600px) {
-            .inicio p br {
-                display: none;
-            }
-
-            section {
-                padding: 40px 15px;
-            }
-
-            .botao,
-            .botao-insta {
-                padding: 15px 22px;
-                font-size: 15px;
-            }
-        }
-
+        body { background-color: #070a12; color: #ffffff; font-family: sans-serif; }
+        .glow-cyan { box-shadow: 0 0 25px rgba(0, 210, 255, 0.4); }
+        .glow-darkblue { box-shadow: 0 0 20px rgba(15, 23, 42, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.1); }
     </style>
 </head>
+<body class="min-h-screen pb-12">
 
-<body>
+    <!-- Navegação -->
+    <nav class="flex justify-center gap-6 py-6 text-sm text-gray-400 border-b border-gray-800">
+        <a href="#inicio" class="hover:text-cyan-400 transition">Início</a>
+        <a href="#videos" class="hover:text-cyan-400 transition">Vídeos</a>
+        <a href="#thumbnails" class="hover:text-cyan-400 transition">Thumbnails</a>
+        <a href="#servicos" class="hover:text-cyan-400 transition">Serviços</a>
+        <a href="#contato" class="hover:text-cyan-400 transition">Contato</a>
+    </nav>
 
-    <!-- MENU -->
-
-    <header>
-        <nav>
-            <a href="#inicio">Início</a>
-            <a href="#videos">Vídeos</a>
-            <a href="#thumbs">Thumbnails</a>
-            <a href="#servicos">Serviços</a>
-            <a href="#contato">Contato</a>
-        </nav>
-    </header>
-
-    <!-- APRESENTAÇÃO -->
-
-    <div class="inicio" id="inicio">
-
-        <img src="perfil.jpg" class="perfil" alt="Menezes">
-
-        <h1><span>Menezes</span></h1>
-
-        <p>
-            não perca horas editando seus videos,
-            <br>
-            enquanto isso você tem a oportunidade de postar <span style="color: #39ff75;">vários vídeos na semana.</span>
-        </p>
-
-        <a class="botao"
-           href="https://wa.me/5518996241216"
-           target="_blank">
-            Falar comigo pelo WhatsApp
-        </a>
-
-        <a class="botao-insta"
-           href="https://instagram.com/menezssz_"
-           target="_blank">
-            Falar comigo pelo Instagram
-        </a>
-
-    </div>
-
-    <!-- VÍDEOS -->
-
-    <section id="videos">
-
-        <h2>Meus <span>Vídeos</span></h2>
-
-        <p class="descricao">
-            Os vídeos abaixo são exemplos de edição minha,
-            mas não trabalhei para nenhum dos youtubers abaixo.
-        </p>
-
-        <div class="videos">
-
-            <div class="video-card">
-                <video controls playsinline>
-                    <source src="video1.mp4" type="video/mp4">
-                </video>
-                <p>Projeto 01</p>
-            </div>
-
-            <div class="video-card">
-                <video controls playsinline>
-                    <source src="video2.mp4" type="video/mp4">
-                </video>
-                <p>Projeto 02</p>
-            </div>
-
+    <!-- Início / Hero -->
+    <section id="inicio" class="flex flex-col items-center text-center px-4 py-12">
+        <div class="relative w-32 h-32 rounded-full overflow-hidden border-2 border-cyan-400 glow-cyan mb-6">
+            <img src="perfil.jpg" alt="Menezes" class="w-full h-full object-cover">
         </div>
-
-    </section>
-
-    <!-- THUMBNAILS -->
-
-    <section class="thumbnails" id="thumbs">
-
-        <h2>Minhas <span>Thumbnails</span></h2>
-
-        <p class="descricao">
-            não são videos já postados no youtube, e sim criações para o portifólio.
+        <h1 class="text-3xl font-bold text-cyan-400 mb-2">Menezes</h1>
+        <p class="text-gray-400 max-w-sm text-sm mb-8">
+            Não perca horas editando seus vídeos, enquanto isso você tem a oportunidade de postar vários vídeos na semana.
         </p>
-
-        <div class="thumbs">
-
-            <div class="thumb-card">
-                <img src="thumb1.png" alt="Thumbnail Como Estudar">
-                <p>Thumbnail 01</p>
-            </div>
-
-            <div class="thumb-card">
-                <img src="thumb2.png" alt="Thumbnail Ganhe do Jeito Certo">
-                <p>Thumbnail 02</p>
-            </div>
-
+        <div class="flex flex-col sm:flex-row gap-4 w-full max-w-sm">
+            <a href="https://wa.me/5518996241216" target="_blank" class="flex items-center justify-center gap-3 bg-cyan-500 text-black font-semibold py-3.5 px-6 rounded-xl text-center glow-cyan hover:bg-cyan-400 transition-all transform hover:-translate-y-0.5">
+                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+                Falar comigo pelo WhatsApp
+            </a>
+            <a href="https://instagram.com/menezssz_" target="_blank" class="flex items-center justify-center gap-3 bg-[#0a0f1d] border border-blue-900/60 text-blue-200 font-semibold py-3.5 px-6 rounded-xl text-center glow-darkblue hover:bg-blue-950/40 hover:border-blue-600/50 hover:text-white transition-all transform hover:-translate-y-0.5">
+                <svg class="w-5 h-5 fill-current text-blue-400" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                Falar comigo pelo Instagram
+            </a>
         </div>
-
     </section>
 
-    <!-- SERVIÇOS -->
-
-    <section id="servicos">
-
-        <h2>alguns outros <span>Serviços</span> que sei fazer</h2>
-
-        <div class="servicos">
-
-            <div class="servico">
-                <h3>Vídeos curtos</h3>
-                <p>
-                    Edição para TikTok,
-                    Reels e YouTube Shorts.
-                </p>
+    <!-- Meus Vídeos -->
+    <section id="videos" class="px-4 py-8 max-w-4xl mx-auto">
+        <h2 class="text-2xl font-bold text-center text-cyan-400 mb-2">Meus Vídeos</h2>
+        <p class="text-gray-400 text-center text-xs mb-8">Os vídeos abaixo são exemplos de edição minha, mas não trabalhei para nenhum dos youtubers abaixo.</p>
+        
+        <div class="grid md:grid-cols-2 gap-6">
+            <div class="bg-gray-900 border border-gray-800 rounded-xl overflow-hidden p-4">
+                <video src="video1.mp4" controls class="w-full rounded-lg mb-4"></video>
+                <h3 class="text-center font-semibold text-gray-300">Projeto 01</h3>
             </div>
-
-            <div class="servico">
-                <h3>storytelling</h3>
-                <p>
-                    construir uma historia que prenda o espectador
-                </p>
+            <div class="bg-gray-900 border border-gray-800 rounded-xl overflow-hidden p-4">
+                <video src="video2.mp4" controls class="w-full rounded-lg mb-4"></video>
+                <h3 class="text-center font-semibold text-gray-300">Projeto 02</h3>
             </div>
-
         </div>
-
     </section>
 
-    <!-- CONTATO -->
-
-    <section class="contato" id="contato">
-
-        <h2>Vamos <span>conversar?</span></h2>
-
-        <p class="descricao">
-            Gostou do meu trabalho?
-            Entre em contato para discutir os preços.
-            Caso não queira ir pelo WhatsApp e nem instagram, mande mensagem pelo Gmail.
-        </p>
-
-        <a class="botao"
-           href="https://wa.me/5518996241216?text=Ol%C3%A1!%20Vi%20seu%20portf%C3%B3lio."
-           target="_blank">
-            Entrar em contato
-        </a>
-
-        <a class="botao-insta"
-           href="https://instagram.com/menezssz_"
-           target="_blank">
-            Entrar em contato pelo Instagram
-        </a>
-
+    <!-- Minhas Thumbnails -->
+    <section id="thumbnails" class="px-4 py-8 max-w-4xl mx-auto">
+        <h2 class="text-2xl font-bold text-center text-cyan-400 mb-2">Minhas Thumbnails</h2>
+        <p class="text-gray-400 text-center text-xs mb-8">Não são vídeos já postados no youtube, e sim criações para o portfólio.</p>
+        
+        <div class="flex flex-col gap-6 items-center">
+            <div class="bg-gray-900 border border-gray-800 rounded-xl p-2 max-w-lg w-full">
+                <img src="thumb1.png" alt="Thumbnail 01" class="rounded-lg w-full object-cover">
+                <p class="text-center text-sm text-cyan-400 mt-2 font-medium">Thumbnail 01</p>
+            </div>
+            <div class="bg-gray-900 border border-gray-800 rounded-xl p-2 max-w-lg w-full">
+                <img src="thumb2.png" alt="Thumbnail 02" class="rounded-lg w-full object-cover">
+                <p class="text-center text-sm text-cyan-400 mt-2 font-medium">Thumbnail 02</p>
+            </div>
+        </div>
     </section>
 
-    <footer>
-        © 2026 <span>Menezes</span>
+    <!-- Serviços -->
+    <section id="servicos" class="px-4 py-8 max-w-3xl mx-auto text-center">
+        <h2 class="text-xl font-bold text-cyan-400 mb-6">Alguns outros Serviços que sei fazer</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="bg-gray-900 border border-gray-800 p-6 rounded-xl">
+                <h3 class="text-cyan-400 font-bold mb-2">Vídeos curtos</h3>
+                <p class="text-gray-400 text-xs">Edição para TikTok, Reels e YouTube Shorts.</p>
+            </div>
+            <div class="bg-gray-900 border border-gray-800 p-6 rounded-xl">
+                <h3 class="text-cyan-400 font-bold mb-2">Storytelling</h3>
+                <p class="text-gray-400 text-xs">Construir uma história que prenda o espectador.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contato -->
+    <section id="contato" class="px-4 py-12 text-center max-w-md mx-auto">
+        <h2 class="text-2xl font-bold text-cyan-400 mb-2">Vamos conversar?</h2>
+        <p class="text-gray-400 text-xs mb-6">Gostou do meu trabalho? Entre em contato para discutir os preços. Caso não queira ir pelo WhatsApp e nem Instagram, mande mensagem pelo Gmail.</p>
+        
+        <div class="flex flex-col gap-4">
+            <a href="https://wa.me/5518996241216" target="_blank" class="flex items-center justify-center gap-3 bg-cyan-500 text-black font-semibold py-3.5 rounded-xl glow-cyan hover:bg-cyan-400 transition-all transform hover:-translate-y-0.5">
+                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+                Entrar em contato
+            </a>
+            <a href="https://instagram.com/menezssz_" target="_blank" class="flex items-center justify-center gap-3 bg-[#0a0f1d] border border-blue-900/60 text-blue-200 font-semibold py-3.5 rounded-xl glow-darkblue hover:bg-blue-950/40 hover:border-blue-600/50 hover:text-white transition-all transform hover:-translate-y-0.5">
+                <svg class="w-5 h-5 fill-current text-blue-400" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                Entrar em contato pelo Instagram
+            </a>
+            <a href="mailto:bays00812@gmail.com" class="flex items-center justify-center gap-3 bg-[#0a0f1d] border border-cyan-900/50 text-cyan-400 font-semibold py-3.5 rounded-xl glow-darkblue hover:bg-cyan-950/30 hover:border-cyan-500/50 transition-all transform hover:-translate-y-0.5">
+                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                Enviar E-mail (Gmail)
+            </a>
+        </div>
+    </section>
+
+    <footer class="text-center text-gray-600 text-xs mt-12">
+        &copy; 2026 Menezes
     </footer>
 
 </body>
