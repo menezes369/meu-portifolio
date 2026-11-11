@@ -304,72 +304,126 @@ function App() {
         </div>
       </section>
 
-      {/* ===== TECNOLOGIAS ===== */}
-      <section className="logos">
-        <Marquee items={TECH} />
-        <Marquee items={[...TECH].reverse()} reverse />
-      </section>
+      
+{/* ===== TECNOLOGIAS ===== */}
+<section className="logos">
+  <Marquee items={TECH} />
+  <Marquee items={[...TECH].reverse()} reverse />
+</section>
 
-      {/* ===== PROJETOS ===== */}
-      <section className="projects" id="projetos">
-        <h2 className="grad-h2 center">Edições que prendem a atenção.</h2>
-        <p className="muted center narrow">
-          Uma seleção dos meus trabalhos mais recentes, feitos com atenção a cada corte, ritmo e detalhe.
+{/* ===== PROJETOS ===== */}
+<section className="projects" id="projetos">
+  <h2 className="grad-h2 center">
+    Edições que prendem a atenção.
+  </h2>
+
+  <p className="muted center narrow">
+    Uma seleção dos meus trabalhos mais recentes, feitos com atenção a cada corte, ritmo e detalhe.
+  </p>
+
+  <div className="cards">
+    {PROJECTS.map((p) => (
+      <article className="card" key={p.src}>
+        <VideoBox key={p.src} src={p.src} />
+        <div className="card-body">
+          <h3>{p.title}</h3>
+        </div>
+      </article>
+    ))}
+  </div>
+</section>
+
+{/* ===== SOBRE (TABS) ===== */}
+<section className="feature">
+  <div className="feature-glow" />
+  <Stars count={22} />
+
+  <div className="feature-grid">
+    <div className="feature-text">
+      <p className="eyebrow">
+        <b>MEUS SERVIÇOS</b> — O QUE POSSO FAZER
+      </p>
+
+      <h2 className="grad-h2">
+        Alguns serviços que sei fazer também
+      </h2>
+
+      <p className="muted">
+        Além da edição tradicional, também trabalho com recursos
+        que ajudam a deixar seus vídeos mais dinâmicos,
+        profissionais e envolventes.
+      </p>
+
+      <div className="tabs">
+        {TABS.map((t) => (
+          <button
+            key={t.id}
+            className={`tab ${tab === t.id ? "on" : ""}`}
+            onClick={() => setTab(tab === t.id ? null : t.id)}
+          >
+            <I name={t.icon} size={17} />
+            {t.title}
+          </button>
+        ))}
+      </div>
+
+      {active && (
+        <p className="muted tab-desc" key={active.id}>
+          {active.desc}
         </p>
-
-        <div className="cards">
-          {PROJECTS.map((p) => (
-            <article className="card" key={p.title}>
-              <VideoBox src={p.src} />
-              <div className="card-body">
-                <h3>{p.title}</h3>
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      {/* ===== SOBRE (TABS) ===== */}
-      <section className="feature">
-        <div className="feature-glow" />
-        <Stars count={22} />
-        <div className="feature-grid">
-          <div className="feature-text">
-            <h2 className="grad-h2">Alguns serviços que sei fazer também</h2>
-            {active && <p className="muted tab-desc" key={active.id}>{active.desc}</p>}
-
-            <div className="tabs">
-              {TABS.map((t) => (
-                <button key={t.id} className={`tab ${tab === t.id ? "on" : ""}`} onClick={() => setTab(t.id)}>
-                  <I name={t.icon} size={15} /> {t.title}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          <div className="visual" aria-hidden="true">
-            <div className="grid-lines" />
-            <div className="chip"><I name={active ? active.icon : "spark"} size={26} /></div>
-          </div>
-        </div>
-      </section>
-
-      {/* ===== CONTATO ===== */}
-      <section className="contact" id="contato">
-        <div className="contact-glow" />
-        <Stars count={18} />
-        <h2 className="grad-h2 center">Vamos editar o seu próximo vídeo?</h2>
-        <p className="muted center narrow">Me chame no WhatsApp e conte sobre seu projeto.</p>
-        <div className="hero-cta cta-col" style={{ marginTop: "20px" }}>
-          <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-white"><WhatsIcon size={17} /> Vamos conversar</a>
-          <a href={"https://www.instagram.com/menezssz_/⁠"} target="_blank" rel="noopener noreferrer" className="btn-glass"><I name="instagram" size={16} /> Instagram</a>
-        </div>
-      </section>
-
-      <footer className="footer">© {new Date().getFullYear()} {NAME}</footer>
+      )}
     </div>
-  );
-}
+
+    <div className="visual">
+      <div className="grid-lines" />
+      <div className="chip">
+        <I name="spark" size={25} />
+      </div>
+    </div>
+  </div>
+</section>
+
+{/* ===== CONTATO ===== */}
+<section className="contact" id="contato">
+  <div className="contact-glow" />
+  <Stars count={18} />
+
+  <h2 className="grad-h2 center">
+    Vamos editar o seu próximo vídeo?
+  </h2>
+
+  <p className="muted center narrow">
+    Me chame no WhatsApp e conte sobre seu projeto.
+  </p>
+
+  <div className="hero-cta cta-col" style={{ marginTop: "20px" }}>
+    <a
+      href={WHATSAPP_URL}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="btn-white"
+    >
+      <WhatsIcon size={17} /> Vamos conversar
+    </a>
+
+    <a
+      href="https://www.instagram.com/menezssz_/"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="btn-glass"
+    >
+      <I name="instagram" size={16} /> Instagram
+    </a>
+  </div>
+</section>
+
+<footer className="footer">
+  © {new Date().getFullYear()} {NAME}
+</footer>
+</div>
+);
+  }
+
 
 // Renderização no Spck Editor
 ReactDOM.render(<App />, document.getElementById("root"));
